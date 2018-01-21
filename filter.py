@@ -16,7 +16,7 @@ def transpose(table):
 
 def clean_data(table, threshold=70):
     tableT = transpose(table)
-    cleaned_tableT = filter(lambda col: col.count("NULL") / len(col) < threshold, tableT)
+    cleaned_tableT = filter(lambda col: (col.count("NULL") / len(col)) < (threshold / 100), tableT)
     return transpose(cleaned_tableT)
 
 if __name__ == "__main__":
