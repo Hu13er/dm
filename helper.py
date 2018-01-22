@@ -12,3 +12,12 @@ def convert_string_to_table(data, sep=','):
 
 def convert_table_to_string(table, sep=','):
     return '\n'.join([','.join(line) for line in table])
+
+def transpose(table):
+    tableT = []
+    for line in table:
+        for i in range(len(line)):
+            if len(tableT) < i+1:
+                tableT.append([])
+            tableT[i].append(line[i])
+    return tableT

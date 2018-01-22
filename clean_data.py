@@ -5,20 +5,11 @@ import sys
 import os
 import helper
 
-def transpose(table):
-    tableT = []
-    for line in table:
-        for i in range(len(line)):
-            if len(tableT) < i+1:
-                tableT.append([])
-            tableT[i].append(line[i])
-    return tableT
-
 def clean_data(table, threshold=70):
-    tableT = transpose(table)
+    tableT = helper.transpose(table)
 #    print(list(map(lambda col: (col.count("NULL") / len(col), (threshold / 100)), tableT)))
     cleaned_tableT = filter(lambda col: (col.count("NULL") / len(col)) < (threshold / 100), tableT)
-    return transpose(cleaned_tableT)
+    return helper.transpose(cleaned_tableT)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
