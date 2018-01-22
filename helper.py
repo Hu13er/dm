@@ -1,4 +1,6 @@
 
+list_of_strings = dict()
+
 def read_file(file_name):
     with open(file_name, 'r') as f:
         return f.read()
@@ -21,3 +23,11 @@ def transpose(table):
                 tableT.append([])
             tableT[i].append(line[i])
     return tableT
+
+def is_int(x):
+    return all(list(map(lambda c: c in "0123456789.", str(x))))
+
+def unzip(iterable):
+    left = list(map(lambda x: x[0], iterable))
+    right = list(map(lambda x: x[1], iterable))
+    return (left, right)

@@ -1,3 +1,4 @@
 *.pyc
 *.local
+__pycache__/
 data/
