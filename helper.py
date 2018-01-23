@@ -1,3 +1,5 @@
+import functools
+
 
 list_of_strings = dict()
 
@@ -31,3 +33,12 @@ def unzip(iterable):
     left = list(map(lambda x: x[0], iterable))
     right = list(map(lambda x: x[1], iterable))
     return (left, right)
+
+def mean(ary):
+    sum_of_cells = reduse(lambda s, x: s + x, ary, 0)
+    return sum_of_cells / len(ary)
+
+def median(ary):
+    lst = ary.sort()
+    return lst[int(len(lst) / 2)]
+

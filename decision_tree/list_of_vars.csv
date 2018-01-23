@@ -1,0 +1,14 @@
+CITY	str
+HBCU	num
+PBI	num
+ANNHI	num
+TRIBAL	num
+AANAPII	num
+HSI	num
+NANTI	num
+INC_PCT_LO	num
+INC_PCT_M1	num
+INC_PCT_M2	num
+INC_PCT_H1	num
+INC_PCT_H2	num
+PPTUG_EF	num
