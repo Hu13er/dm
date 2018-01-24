@@ -35,10 +35,14 @@ def unzip(iterable):
     return (left, right)
 
 def mean(ary):
-    sum_of_cells = reduse(lambda s, x: s + x, ary, 0)
+    sum_of_cells = functools.reduce(lambda s, x: s + x, ary, 0)
     return sum_of_cells / len(ary)
 
-def median(ary):
-    lst = ary.sort()
-    return lst[int(len(lst) / 2)]
+def seAk(ary):
+    lst = sorted(ary)
+
+    q1 = int(len(lst) / 3)
+    q2 = int(len(lst) / 3) * 2
+
+    return (lst[q1], lst[q2])
 
