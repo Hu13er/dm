@@ -1,3 +1,5 @@
+import functools
+
 
 list_of_strings = dict()
 
@@ -31,3 +33,16 @@ def unzip(iterable):
     left = list(map(lambda x: x[0], iterable))
     right = list(map(lambda x: x[1], iterable))
     return (left, right)
+
+def mean(ary):
+    sum_of_cells = functools.reduce(lambda s, x: s + x, ary, 0)
+    return sum_of_cells / len(ary)
+
+def seAk(ary):
+    lst = sorted(ary)
+
+    q1 = int(len(lst) / 3)
+    q2 = int(len(lst) / 3) * 2
+
+    return (lst[q1], lst[q2])
+
