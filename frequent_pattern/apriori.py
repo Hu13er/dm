@@ -83,4 +83,5 @@ if __name__ == "__main__":
     frequent_patterns = apriori(trans, min_support)
     for fp in frequent_patterns:
         items, support = fp
-        print(', '.join(map(str, items)), "->", support)
+        items = data.convert_cols_number_to_string(items)
+        print("{ %s }" % ', '.join(map(str, items)), "->", support)
