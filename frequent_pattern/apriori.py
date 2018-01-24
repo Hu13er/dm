@@ -8,12 +8,6 @@ from collections import defaultdict
 import data
 import helper
 
-def subsets(ary):
-    return chain(*[combinations(ary, i + 1) for i, a in enumerate(ary)])
-
-def join(itemset, length):
-    return set([i.union(j) for i in itemset for j in itemset if len(i.union(j)) == length])
-
 def items_with_min_sup(itemset, transactionList, min_support, freq):
     output = set()
     local = defaultdict(int)
@@ -25,7 +19,7 @@ def items_with_min_sup(itemset, transactionList, min_support, freq):
                 local[item] += 1
 
     for item, count in local.items():
-        support = float(count)/len(transactionList)
+        support = float(count) / len(transactionList)
         if support >= min_support:
             output.add(item)
 
@@ -35,8 +29,8 @@ def apriori(transactions, min_support):
     def normalize_types(data):
         transactionList = list()
         itemset = set()
-        for record in data:
-            transaction = frozenset(record)
+        for row in data:
+            transaction = frozenset(row)
             transactionList.append(transaction)
             for item in transaction:
                 itemset.add(frozenset([item]))
@@ -59,13 +53,19 @@ def apriori(transactions, min_support):
         k += 1
 
     def support(item):
-        return freq[item] / len(transactionList)
+        return float(freq[item]) / len(transactionList)
     output = []
 
     for key, value in L.items():
         output.extend([(list(item), support(item)) for item in value])
 
     return output
+
+def subsets(ary):
+    return chain(*[combinations(ary, i + 1) for i in range(ary)])
+
+def join(itemset, length):
+    return set([i.union(j) for i in itemset for j in itemset if len(i.union(j)) == length])
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
