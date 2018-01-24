@@ -2,7 +2,6 @@
 #
 
 import sys
-import os
 import helper
 
 def reduce_data(table, list_of_vars):
