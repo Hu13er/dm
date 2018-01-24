@@ -1,3 +1,6 @@
+#!/bin/python3
+#
+
 import helper
 import sys
 import math
